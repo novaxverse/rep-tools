@@ -25,7 +25,7 @@ const tools = [
     type: "PS4 Tool",
 
     // ⬇️ Enlace de MediaFire — descarga 
-    url: "https://github.com/novaxverse/rep-tools/releases/download/vR2/Store-R2.pkg"
+    url: "https://pkg-zone.com/install"
   },
 
   {
