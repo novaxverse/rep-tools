@@ -68,9 +68,16 @@ a{color:inherit;text-decoration:none}
 /* ===== BRILLO DEL BANNER (gradiente azul de la página) ===== */
 .banner-glow{
   position:relative;
+  width:80%;
+  margin:10px auto 0;
   animation:sombra-azul 4s ease-in-out infinite;
 }
 .banner-glow .banner{filter:none}
+
+.banner-line{
+  border-top:2px solid var(--yellow);
+  margin:14px 0 18px;
+}
 
 /* Barrido de luz: una única pasada al cargar la página */
 .banner-glow::after{
@@ -139,13 +146,25 @@ a{color:inherit;text-decoration:none}
 .titlebox h2 span{color:var(--yellow)}
 .titlebox p{margin:3px 0 0;color:var(--muted);font-size:15px}
 
+.search-wrap{
+  position:relative;
+}
+.search-icon{
+  position:absolute;
+  left:13px;
+  top:50%;
+  transform:translateY(-50%);
+  width:18px;
+  height:18px;
+  pointer-events:none;
+}
 .search{
   width:min(360px,100%);
   background:#02070d;
   border:1px solid #31516d;
   border-radius:10px;
   color:#fff;
-  padding:13px 15px;
+  padding:13px 15px 13px 42px;
   font-size:15px;
   outline:none;
 }
@@ -457,6 +476,16 @@ img.tool-icon{
   padding:16px;
   margin-bottom:16px;
 }
+.side-icon{
+  height:18px;
+  vertical-align:middle;
+  margin-right:8px;
+}
+.sidebox h3 img{
+  height:18px;
+  vertical-align:middle;
+  margin-right:8px;
+}
 .sidebox h3{
   margin:0 0 12px;
   padding-bottom:10px;
@@ -477,7 +506,7 @@ img.tool-icon{
 .category:last-child{border-bottom:0}
 .category:hover{color:var(--yellow)}
 .cat-left{display:flex;align-items:center;gap:11px}
-.cat-icon{font-size:22px}
+.cat-icon{width:22px;height:22px;object-fit:contain}
 
 .update{
   display:grid;
