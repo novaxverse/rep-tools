@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaXVerse - Enlaces de descarga de herramientas, homebrew y utilidades.">
+  <title>NovaXVerse | Enlaces de descarga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="page">
+
+  <div class="banner-glow">
+    <img src="banner.png" alt="Banner de NovaXverse" class="banner">
+  </div>
+
+  <div class="topbar">
+    <div class="titlebox">
+      <div class="title-icon">🎮</div>
+      <div>
+        <h2>ENLACES <span>DE DESCARGA</span></h2>
+        <p>Herramientas, homebrew y utilidades para tu consola y más.</p>
+      </div>
+    </div>
+    <input id="search" class="search" type="search" placeholder="🔎  Buscar herramienta..." autocomplete="off">
+  </div>
+
+  <div class="layout">
+    <main id="content">
+
+      <section class="section" data-section="PS4">
+        <div class="section-title">
+          <div class="icon">🎮</div>
+          <div>
+            <h3>PS4 <span>TOOLS</span></h3>
+            <p>Herramientas para tu PS4</p>
+          </div>
+        </div>
+        <div class="cards" id="ps4-tools"></div>
+        <div class="empty">No se encontraron herramientas en esta categoría.</div>
+      </section>
+
+      <section class="section" data-section="Utilidades">
+        <div class="section-title">
+          <div class="icon">⚙️</div>
+          <div>
+            <h3>UTILIDADES</h3>
+            <p>Herramientas varias y aplicaciones</p>
+          </div>
+        </div>
+        <div class="cards" id="utilities"></div>
+        <div class="empty">No se encontraron herramientas en esta categoría.</div>
+      </section>
+
+      <section class="section" data-section="Otros">
+        <div class="section-title">
+          <div class="icon">📦</div>
+          <div>
+            <h3>OTROS</h3>
+            <p>Extras, scripts y más</p>
+          </div>
+        </div>
+        <div class="cards" id="others"></div>
+        <div class="empty">No se encontraron herramientas en esta categoría.</div>
+      </section>
+
+    </main>
+
+    <aside class="sidebar">
+      <div class="sidebox">
+        <h3>📁 Categorías</h3>
+        <div class="category" onclick="filterCategory('PS4')">
+          <div class="cat-left"><span class="cat-icon">🎮</span><span>PS4 Tools</span></div>
+          <span>3 ›</span>
+        </div>
+        <div class="category" onclick="filterCategory('Utilidades')">
+          <div class="cat-left"><span class="cat-icon">⚙️</span><span>Utilidades</span></div>
+          <span>3 ›</span>
+        </div>
+        <div class="category" onclick="filterCategory('Otros')">
+          <div class="cat-left"><span class="cat-icon">📦</span><span>Otros</span></div>
+          <span>1 ›</span>
+        </div>
+        <div class="category" onclick="filterCategory('Todas')">
+          <div class="cat-left"><span class="cat-icon">↻</span><span>Mostrar todas</span></div>
+          <span>›</span>
+        </div>
+      </div>
+
+      <div class="sidebox">
+        <h3>🕒 Últimas actualizaciones</h3>
+        <div id="updates"></div>
+      </div>
+
+      <div class="subscribe">
+        <h3>⚡ Mantente al día</h3>
+        <p>Sigue el canal para más herramientas, tutoriales y novedades.</p>
+        <a class="yt" href="https://www.youtube.com/@novax_verse" target="_blank" rel="noopener">
+          <span class="yt-icon">▶</span>
+          <span>Suscríbete a NovaX Verse</span>
+          <span>›</span>
+        </a>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <div><strong>NOVA<span class="yellow">X</span>VERSE</strong> &nbsp; | &nbsp; APRENDE • EXPLORA • DISFRUTA</div>
+    <div>Última actualización: <span class="yellow">18/09/2026</span></div>
+    <div>© 2026 NovaX Verse</div>
+  </footer>
+</div>
+
+<script src="enlaces.js"></script>
+<script>
+const containers = {
+  "PS4": document.getElementById("ps4-tools"),
+  "Utilidades": document.getElementById("utilities"),
+  "Otros": document.getElementById("others")
+};
+
+function createCard(tool){
+  const card = document.createElement("article");
+  card.className = "card" + (tool.featured ? " featured" : "");
+  card.dataset.name = tool.name.toLowerCase();
+  card.dataset.description = tool.description.toLowerCase();
+  card.dataset.category = tool.category.toLowerCase();
+
+  const hasLink = tool.url && tool.url !== "#";
+  const button = hasLink
+    ? `<a class="download" href="${tool.url}" target="_blank" rel="noopener">☁️ DESCARGAR</a>`
+    : `<span class="download disabled">🔒 ENLACE PENDIENTE</span>`;
+
+  card.innerHTML = `
+    <div class="card-top">
+      <div class="tool-icon">${tool.icon}</div>
+      <div>
+        <h4>${tool.name}</h4>
+        <p>${tool.description}</p>
+        <span class="tag">${tool.tag}</span>
+      </div>
+    </div>
+    <div class="card-bottom">
+      ${button}
+      <span class="size">${tool.size}</span>
+    </div>
+  `;
+
+  return card;
+}
+
+function renderTools(list = tools){
+  Object.values(containers).forEach(c => c.innerHTML = "");
+
+  list.forEach(tool => {
+    if(containers[tool.category]){
+      containers[tool.category].appendChild(createCard(tool));
+    }
+  });
+
+  document.querySelectorAll(".section").forEach(section => {
+    const cards = section.querySelector(".cards");
+    const empty = section.querySelector(".empty");
+    empty.style.display = cards.children.length ? "none" : "block";
+  });
+}
+
+function renderUpdates(){
+  const updates = [...tools]
+    .sort((a,b) => b.date.split("/").reverse().join("-").localeCompare(a.date.split("/").reverse().join("-")))
+    .slice(0,3);
+
+  document.getElementById("updates").innerHTML = updates.map(tool => `
+    <div class="update">
+      <div class="update-icon">${tool.icon}</div>
+      <div>
+        <strong>${tool.name}</strong>
+        <small>${tool.type}</small>
+      </div>
+      <div class="date">${tool.date}</div>
+    </div>
+  `).join("");
+}
+
+function filterCategory(category){
+  const search = document.getElementById("search");
+  if(category === "Todas"){
+    search.value = "";
+    renderTools(tools);
+    return;
+  }
+  search.value = "";
+  renderTools(tools.filter(t => t.category === category));
+  document.querySelector(`[data-section="${category}"]`)?.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+document.getElementById("search").addEventListener("input", function(){
+  const q = this.value.toLowerCase().trim();
+
+  if(!q){
+    renderTools(tools);
+    return;
+  }
+
+  renderTools(tools.filter(tool =>
+    tool.name.toLowerCase().includes(q) ||
+    tool.description.toLowerCase().includes(q) ||
+    tool.category.toLowerCase().includes(q) ||
+    tool.tag.toLowerCase().includes(q)
+  ));
+});
+
+renderTools();
+renderUpdates();
+</script>
+</body>
+</html>
