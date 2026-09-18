@@ -54,10 +54,10 @@
       </a>
     </div>
     <div class="rpi-row">
-      <button id="startRpi" class="rpi" onclick="startRpi()">🔓 ARRANCAR RPI (INSTALADOR)</button>
-      <span id="rpiStatus" class="rpi-status">Arranca el instalador remoto desde esta página.</span>
+      <button id="startRpi" class="rpi" onclick="startRpi()">🔗 COMPROBAR INSTALADOR (RPI)</button>
+      <span id="rpiStatus" class="rpi-status">Comprueba el instalador en la consola (RPI 12801 / nativo 12800).</span>
     </div>
-    <p class="webkit-note">Activa la última versión de GOLDHEN de la forma más Fácil, Rápida y Simple posible.</p>
+    <p class="webkit-note">Para INSTALAR, RPI debe estar instalado y abierto en la consola (se instala una sola vez con FPKGi o USB → Debug Settings). Esta web solo se comunica con él y envía la descarga.</p>
   </section>
 
   <div class="topbar">
@@ -215,7 +215,7 @@ function wireInstall(){
       const url = btn.dataset.url;
       btn.textContent = "LOCALIZANDO...";
       findInstaller().then(port => {
-        if(!port){ btn.textContent = "SIN RPI"; return; }
+        if(!port){ btn.textContent = "ABRE RPI PRIMERO"; return; }
         btn.textContent = "ENVIANDO...";
         fetch(`http://127.0.0.1:${port}/api/install`, {
           method: "POST",
@@ -224,7 +224,7 @@ function wireInstall(){
         })
           .then(r => r.json())
           .then(d => { btn.textContent = d.status ? "INSTALANDO ✔" : "ERROR ✖"; })
-          .catch(() => { btn.textContent = "SIN RPI"; });
+          .catch(() => { btn.textContent = "USA HTTP (pestaña)"; });
       });
     };
   });
@@ -235,44 +235,18 @@ function startRpi(){
   const status = document.getElementById("rpiStatus");
   btn.disabled = true;
 
-  findInstaller().then(port => {
-    if(port){
-      status.textContent = "INSTALADOR YA ACTIVO (puerto " + port + ") — pulsa INSTALAR EN PS4.";
-      btn.disabled = false;
-      return;
-    }
-    status.textContent = "1/3 Cargando rpi.elf...";
-    return fetch("rpi.elf")
-      .then(r => { if(!r.ok) throw new Error("no-elf"); return r.arrayBuffer(); })
-      .then(buf => {
-        status.textContent = "2/3 Enviando a PayLoader 9090...";
-        return fetch("http://127.0.0.1:9090/payload", {
-          method: "POST",
-          headers: {"Content-Type": "application/octet-stream"},
-          body: buf
-        });
-      })
-      .then(() => new Promise(resolve => setTimeout(resolve, 1500)))
-      .then(() => {
-        status.textContent = "3/3 Comprobando instalador...";
-        return findInstaller();
-      })
-      .then(port => {
-        if(port){
-          status.textContent = "RPI ACTIVO ✔ (puerto " + port + ") — usa INSTALAR EN PS4.";
-        } else if (location.protocol === "https:"){
-          status.textContent = "PUERTO 9090 INALCANZABLE DESDE HTTPS — el navegador PS4 bloquea el envío. La página debe servirse por HTTP para arrancar RPI.";
-        } else {
-          status.textContent = "RPI NO ARRANCÓ — comprueba que GoldHEN escucha en 9090 y reintenta.";
-        }
-      })
-      .catch(e => {
-        status.textContent = e && e.message === "no-elf"
-          ? "FALTA rpi.elf — súbelo junto a la página."
-          : "PASO 2/3 FALLÓ — no se pudo enviar a 127.0.0.1:9090 (probable bloqueo mixto).";
-      });
-  })
-  .finally(() => { btn.disabled = false; });
+  const httpsNote = location.protocol === "https:"
+    ? " ⚠ Esta página va por HTTPS y el navegador de la PS4 bloquea hablar con la consola; abre su versión HTTP (host gratuito)."
+    : "";
+
+  status.textContent = "Comprobando 12800/12801 en la consola..." + httpsNote;
+  findInstaller()
+    .then(port => {
+      status.textContent = port
+        ? "INSTALADOR ACTIVO ✔ (puerto " + port + ") — pulsa 📥 INSTALAR EN PS4 en la tarjeta que quieras."
+        : "Sin instalador (12800/12801 cerrados)." + httpsNote + " Instala RPI.pkg una sola vez (FPKGi o USB → Debug Settings → Install Package), ábrelo desde el menú de la PS4 y vuelve a pulsar aquí.";
+    })
+    .finally(() => { btn.disabled = false; });
 }
 
 function renderUpdates(){
@@ -327,6 +301,11 @@ document.getElementById("search").addEventListener("input", function(){
 
 renderTools();
 renderUpdates();
+
+if (location.protocol === "https:"){
+  const rs = document.getElementById("rpiStatus");
+  if (rs) rs.textContent = "⚠ Esta página en HTTPS no puede hablar con la consola — abre su versión por HTTP para arrancar RPI.";
+}
 </script>
 </body>
 </html>

@@ -29,6 +29,20 @@ const tools = [
   },
 
   {
+    name: "RPI (Instalador Remoto)",
+    category: "PS4",
+    description: "Instala PKGs desde esta web (puerto 12801). Instálalo una vez y ábrelo.",
+    tag: "PS4",
+    size: "9 MB",
+    icon: "package-icon.png",
+    date: "18/09/2026",
+    type: "PS4 Tool",
+
+    // ⬇️ PEGA AQUÍ EL ENLACE del RPI.pkg (ya está listo en el proyecto para subirlo)
+    url: "#"
+  },
+
+  {
     name: "FPKGI STORE",
     category: "PS4",
     description: "Tienda de Backups.",
