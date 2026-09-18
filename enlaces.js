@@ -24,8 +24,8 @@ const tools = [
     date: "18/09/2026",
     type: "PS4 Tool",
 
-    // ⬇️ Enlace de MediaFire — descarga 
-    url: "https://pkg-zone.com/install"
+    // ⬇️ Descarga directa (para RPI) 
+    url: "https://github.com/novaxverse/rep-tools/releases/download/vR2/Store-R2.pkg"
   },
 
   {
