@@ -53,6 +53,10 @@
         <span class="go">›</span>
       </a>
     </div>
+    <div class="rpi-row">
+      <button id="startRpi" class="rpi" onclick="startRpi()">🔓 ARRANCAR RPI (INSTALADOR)</button>
+      <span id="rpiStatus" class="rpi-status">Arranca el instalador remoto desde esta página.</span>
+    </div>
     <p class="webkit-note">Activa la última versión de GOLDHEN de la forma más Fácil, Rápida y Simple posible.</p>
   </section>
 
@@ -190,7 +194,7 @@ function wireInstall(){
     btn.onclick = () => {
       const url = btn.dataset.url;
       btn.textContent = "ENVIANDO...";
-      fetch("http://127.0.0.1:12800/api/install", {
+      fetch("http://127.0.0.1:12801/api/install", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({type: "direct", packages: [url]})
@@ -200,6 +204,30 @@ function wireInstall(){
         .catch(() => { btn.textContent = "SIN RPI"; });
     };
   });
+}
+
+function startRpi(){
+  const btn = document.getElementById("startRpi");
+  const status = document.getElementById("rpiStatus");
+  btn.disabled = true;
+  status.textContent = "CARGANDO rpi.elf...";
+
+  fetch("rpi.elf")
+    .then(r => { if(!r.ok) throw new Error("no-elf"); return r.arrayBuffer(); })
+    .then(buf => fetch("http://127.0.0.1:9090/payload", {
+      method: "POST",
+      headers: {"Content-Type": "application/octet-stream"},
+      body: buf
+    }))
+    .then(() => new Promise(resolve => setTimeout(resolve, 1500)))
+    .then(() => fetch("http://127.0.0.1:12801/"))
+    .then(() => { status.textContent = "RPI ACTIVO ✔ Usa INSTALAR EN PS4."; })
+    .catch(e => {
+      status.textContent = e && e.message === "no-elf"
+        ? "FALTA rpi.elf — súbelo junto a la página."
+        : "CONSOLA NO DISPONIBLE — libera con WebKit por HTTP y reintenta.";
+    })
+    .finally(() => { btn.disabled = false; });
 }
 
 function renderUpdates(){

@@ -487,6 +487,40 @@ img.tool-icon{
   letter-spacing:normal;
 }
 
+/* ===== ARRANCAR RPI (INSTALADOR) ===== */
+.rpi-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid #18344b;
+}
+.rpi{
+  flex:none;
+  border:0;
+  border-radius:8px;
+  padding:11px 14px;
+  background:linear-gradient(180deg,#ffd226,#f0a900);
+  color:#02050a;
+  font-size:13px;
+  font-weight:900;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.18s ease;
+}
+.rpi:hover{filter:brightness(1.1)}
+.rpi:disabled{opacity:.55;cursor:wait}
+.rpi-status{
+  flex:1 1 200px;
+  min-width:0;
+  color:var(--muted);
+  font-size:12px;
+  font-family:Arial, Helvetica, sans-serif;
+  letter-spacing:normal;
+}
+
 /* ===== SIDEBAR ===== */
 .sidebox{
   border:1px solid #294760;
