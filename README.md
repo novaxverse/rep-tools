@@ -11,7 +11,7 @@ Hay **dos versiones** de la misma página:
 
 ## Flujo completo (sin PC)
 
-> En firmware 12.5x/13.00 el PayLoader de GoldHEN (puerto 9090) **solo acepta payloads de kernel**: RPI y los homebrew se instalan como **app** (pkg), no se envían por 9090. La instancia se hace **una sola vez**; después todo funciona desde la página.
+> En firmware 11.00+/12.00/12.5x/13.00 el PayLoader de GoldHEN (puerto 9090) **solo acepta payloads de kernel**: RPI y los homebrew se instalan como **app** (pkg), no se envían por 9090. La instancia se hace **una sola vez**; después todo funciona desde la página.
 
 1. **Libera la PS4** en el navegador de la consola con cualquier host (ver abajo). Queda GoldHEN 2.4b18 activo.
 2. **Instala una sola vez** `RPI.pkg` (card **RPI Instalador Remoto**): con **FPKGi** (se instala igual por USB → GoldHEN Debug Settings → Install Package) o con **USB → Debug Settings → Install Package**. Abre RPI desde el menú: abre el puerto 12801.
@@ -41,7 +41,7 @@ La comunicación de la página con RPI (`127.0.0.1:12801`, y el arranque de RPI 
    - `index.html`
    - `style.css`
    - `enlaces.js`
-3. Sube también `RPI.pkg` (o súbelo a un release de GitHub y pega el enlace en su tarjeta de `enlaces.js`).
+3. `RPI.pkg` ya está en un release de GitHub (`vR2`) y su tarjeta ya tiene el enlace en `enlaces.js`; no hace falta subirlo al hosting.
 4. Abre `http://novaxverse.rf.gd` desde el navegador de la PS4 y sigue el flujo de arriba.
 
 > En el plan gratis InfinityFree inserta un marco publicitario sobre la página; es cosmético y no afecta al flujo. Todo el resto (catálogo, `.pkg`) puede seguir en GitHub.

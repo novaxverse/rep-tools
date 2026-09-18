@@ -38,8 +38,8 @@ const tools = [
     date: "18/09/2026",
     type: "PS4 Tool",
 
-    // ⬇️ PEGA AQUÍ EL ENLACE del RPI.pkg (ya está listo en el proyecto para subirlo)
-    url: "#"
+    // ⬇️ Descarga directa (para RPI)
+    url: "https://github.com/novaxverse/rep-tools/releases/download/vR2/RPI.pkg"
   },
 
   {
