@@ -38,7 +38,7 @@ Repositorio de NovaXverse con los hosts de exploit WebKit para liberar tu PS4. P
 
    Si el problema persiste, prueba con otro host compatible con tu versión de firmware.
 
-## Únete a esta VERSE
+## Únete a NovaXverse
 
-- **YouTube** — Suscríbete a NovaXVerse (botón rojo con el icono de YouTube).
-- **Twitter / X** — Síguenos en Twitter / X (botón oscuro con el icono de X).
+- **YouTube** — [Suscríbete a NovaXVerse](https://www.youtube.com/@novax_verse)
+- **Twitter / X** — [Síguenos en Twitter / X](https://x.com/NovaXverse)
