@@ -159,6 +159,7 @@ function createCard(tool){
     </div>
     <div class="card-bottom">
       ${button}
+      ${hasLink ? `<button class="install" data-url="${tool.url}">📥 INSTALAR EN PS4</button>` : ""}
       <span class="size">${tool.size}</span>
     </div>
   `;
@@ -179,6 +180,25 @@ function renderTools(list = tools){
     const cards = section.querySelector(".cards");
     const empty = section.querySelector(".empty");
     empty.style.display = cards.children.length ? "none" : "block";
+  });
+
+  wireInstall();
+}
+
+function wireInstall(){
+  document.querySelectorAll(".install").forEach(btn => {
+    btn.onclick = () => {
+      const url = btn.dataset.url;
+      btn.textContent = "ENVIANDO...";
+      fetch("http://127.0.0.1:12800/api/install", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({type: "direct", packages: [url]})
+      })
+        .then(r => r.json())
+        .then(d => { btn.textContent = d.status ? "INSTALANDO ✔" : "ERROR ✖"; })
+        .catch(() => { btn.textContent = "SIN RPI"; });
+    };
   });
 }
 

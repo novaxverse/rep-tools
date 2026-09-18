@@ -304,7 +304,26 @@ img.tool-icon{
   display:flex;
   align-items:center;
   gap:9px;
+  flex-wrap:wrap;
 }
+.install{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  border:1px solid #2b6a99;
+  border-radius:8px;
+  background:linear-gradient(180deg,#0b1623,#050d16);
+  color:#bfe3ff;
+  font-weight:900;
+  padding:11px 10px;
+  cursor:pointer;
+  text-transform:uppercase;
+  font-size:12px;
+  white-space:nowrap;
+}
+.install:hover{background:#0e1f30;border-color:var(--yellow);color:#fff}
 .download{
   flex:1;
   display:flex;
