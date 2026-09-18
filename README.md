@@ -1,20 +1,18 @@
-# NovaXverse · Página de Exploits
+# NovaXverse · Activación WEBKIT
 
-Repositorio de NovaXverse con los hosts de exploit WebKit para liberar tu PS4. Publicada en **GitHub Pages** (HTTPS gratuito), accesible desde el navegador de la PS4 y de cualquier dispositivo.
+Repositorio de NovaXverse con los hosts de exploit WebKit para liberar tu PS4. Publicada en **GitHub Pages** (HTTPS gratuito), accesible desde el navegador de la PS4 y de cualquier dispositivo tan sólo con un Click.
 
 ## Contenido de la página
 
-- **LIBERA TU PS4 CON WEBKIT**: lista de hosts de exploit por rango de firmware, en tarjetas con chip de versión:
+- **LIBERA TU PS4 CON WEBKIT**: lista de hosts de EXPLOIT por versión de firmware:
 
-  | Chip de versión | Host |
+  | Firmware | Host |
   |---|---|
   | 6.00 – 13.52 | PRÓXIMAMENTE |
   | 7.00 – 13.00 | GAMERHACK |
   | 11.50 – 13.00 | RAWGAME |
   | 6.00 – 13.00 | ZECOXAO |
   | 6.00 – 13.00 | NOVAXVERSE |
-
-- **Mantente al día**: caja con dos botones: **Suscríbete a NovaXVerse** (YouTube) y **Síguenos en Twitter / X**.
 
 ## Cómo se usa
 
