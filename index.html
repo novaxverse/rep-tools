@@ -18,9 +18,46 @@
     <img src="banner.png" alt="Banner de NovaXverse" class="banner">
   </div>
 
+  <section class="webkit-section">
+    <div class="webkit-head">
+      <h3><img class="head-svg" src="candado-abierto.png" alt=""> LIBERA TU PS4 CON WEBKIT</h3>
+      <div class="socials">
+        <a class="social yt" href="https://www.youtube.com/@novax_verse" target="_blank" rel="noopener" title="YouTube – NovaX Verse" aria-label="YouTube">▶</a>
+        <a class="social tw" href="https://x.com/NovaXverse" target="_blank" rel="noopener" title="Twitter / X – NovaXVerse" aria-label="Twitter">𝕏</a>
+      </div>
+    </div>
+    <div class="webkit-grid">
+      <div class="webkit-item disabled">
+        <span class="fw">6.00 – 13.52</span>
+        <span class="host">PRÓXIMAMENTE</span>
+      </div>
+      <a class="webkit-item" href="https://gamerhack.github.io/g2all/" target="_blank" rel="noopener">
+        <span class="fw">7.00 – 13.00</span>
+        <span class="host">GAMERHACK</span>
+        <span class="go">›</span>
+      </a>
+      <a class="webkit-item" href="https://rawgame4.github.io" target="_blank" rel="noopener">
+        <span class="fw">11.50 – 13.00</span>
+        <span class="host">RAWGAME</span>
+        <span class="go">›</span>
+      </a>
+      <a class="webkit-item" href="https://zecoxao.github.io/ntfonto/" target="_blank" rel="noopener">
+        <span class="fw">6.00 – 13.00</span>
+        <span class="host">ZECOXAO</span>
+        <span class="go">›</span>
+      </a>
+      <a class="webkit-item" href="https://novaxverse.github.io/CSSExploit/public/" target="_blank" rel="noopener">
+        <span class="fw">6.00 – 13.00</span>
+        <span class="host">NOVAXVERSE</span>
+        <span class="go">›</span>
+      </a>
+    </div>
+    <p class="webkit-note">Activa la última versión de GOLDHEN de la forma más Fácil, Rápida y Simple posible.</p>
+  </section>
+
   <div class="topbar">
     <div class="titlebox">
-      <div class="title-icon">🎮</div>
+      <div class="title-icon"><img src="enlace.png" alt=""></div>
       <div>
         <h2>ENLACES <span>DE DESCARGA</span></h2>
         <p>Herramientas, homebrew y utilidades para tu consola y más.</p>
@@ -34,37 +71,13 @@
 
       <section class="section" data-section="PS4">
         <div class="section-title">
-          <div class="icon">🎮</div>
+          <div class="icon"><img src="package-icon.png" alt="PS4 Tools"></div>
           <div>
             <h3>PS4 <span>TOOLS</span></h3>
             <p>Herramientas para tu PS4</p>
           </div>
         </div>
         <div class="cards" id="ps4-tools"></div>
-        <div class="empty">No se encontraron herramientas en esta categoría.</div>
-      </section>
-
-      <section class="section" data-section="Utilidades">
-        <div class="section-title">
-          <div class="icon">⚙️</div>
-          <div>
-            <h3>UTILIDADES</h3>
-            <p>Herramientas varias y aplicaciones</p>
-          </div>
-        </div>
-        <div class="cards" id="utilities"></div>
-        <div class="empty">No se encontraron herramientas en esta categoría.</div>
-      </section>
-
-      <section class="section" data-section="Otros">
-        <div class="section-title">
-          <div class="icon">📦</div>
-          <div>
-            <h3>OTROS</h3>
-            <p>Extras, scripts y más</p>
-          </div>
-        </div>
-        <div class="cards" id="others"></div>
         <div class="empty">No se encontraron herramientas en esta categoría.</div>
       </section>
 
@@ -76,14 +89,6 @@
         <div class="category" onclick="filterCategory('PS4')">
           <div class="cat-left"><span class="cat-icon">🎮</span><span>PS4 Tools</span></div>
           <span>3 ›</span>
-        </div>
-        <div class="category" onclick="filterCategory('Utilidades')">
-          <div class="cat-left"><span class="cat-icon">⚙️</span><span>Utilidades</span></div>
-          <span>3 ›</span>
-        </div>
-        <div class="category" onclick="filterCategory('Otros')">
-          <div class="cat-left"><span class="cat-icon">📦</span><span>Otros</span></div>
-          <span>1 ›</span>
         </div>
         <div class="category" onclick="filterCategory('Todas')">
           <div class="cat-left"><span class="cat-icon">↻</span><span>Mostrar todas</span></div>
@@ -118,10 +123,14 @@
 <script src="enlaces.js"></script>
 <script>
 const containers = {
-  "PS4": document.getElementById("ps4-tools"),
-  "Utilidades": document.getElementById("utilities"),
-  "Otros": document.getElementById("others")
+  "PS4": document.getElementById("ps4-tools")
 };
+
+function iconHtml(icon){
+  return /\.(png|jpe?g|gif|svg|webp)$/i.test(icon || "")
+    ? `<img class="tool-icon" src="${icon}" alt="">`
+    : `<div class="tool-icon">${icon}</div>`;
+}
 
 function createCard(tool){
   const card = document.createElement("article");
@@ -132,12 +141,12 @@ function createCard(tool){
 
   const hasLink = tool.url && tool.url !== "#";
   const button = hasLink
-    ? `<a class="download" href="${tool.url}" target="_blank" rel="noopener">☁️ DESCARGAR</a>`
+    ? `<a class="download" href="${tool.url}" target="_blank" rel="noopener">⬇ DESCARGAR</a>`
     : `<span class="download disabled">🔒 ENLACE PENDIENTE</span>`;
 
   card.innerHTML = `
     <div class="card-top">
-      <div class="tool-icon">${tool.icon}</div>
+      ${iconHtml(tool.icon)}
       <div>
         <h4>${tool.name}</h4>
         <p>${tool.description}</p>
@@ -174,16 +183,21 @@ function renderUpdates(){
     .sort((a,b) => b.date.split("/").reverse().join("-").localeCompare(a.date.split("/").reverse().join("-")))
     .slice(0,3);
 
-  document.getElementById("updates").innerHTML = updates.map(tool => `
+  document.getElementById("updates").innerHTML = updates.map(tool => {
+    const uIcon = /\.(png|jpe?g|gif|svg|webp)$/i.test(tool.icon || "")
+      ? `<img class="update-icon" src="${tool.icon}" alt="">`
+      : `<div class="update-icon">${tool.icon}</div>`;
+    return `
     <div class="update">
-      <div class="update-icon">${tool.icon}</div>
+      ${uIcon}
       <div>
         <strong>${tool.name}</strong>
         <small>${tool.type}</small>
       </div>
       <div class="date">${tool.date}</div>
     </div>
-  `).join("");
+  `;
+  }).join("");
 }
 
 function filterCategory(category){

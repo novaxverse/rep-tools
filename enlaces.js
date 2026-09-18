@@ -14,46 +14,46 @@
 
 const tools = [
   {
-    name: "Store-R2",
+    name: "HOMEBREW STORE",
     category: "PS4",
-    description: "Herramienta para PS4.",
+    description: "Tienda de Aplicaciones.",
     tag: "PS4",
     size: "24 MB",
-    icon: "📦",
+    icon: "hb_icon.png",
     featured: true,
     date: "18/09/2026",
     type: "PS4 Tool",
 
-    // ⬇️ Enlace de MediaFire — descarga y luego instala con GoldHEN
+    // ⬇️ Enlace de MediaFire — descarga 
     url: "https://www.mediafire.com/file/llbaxvl0jkdrnbj/Store-R2.pkg/file"
   },
 
   {
-    name: "App2USB",
+    name: "FPKGI STORE",
     category: "PS4",
-    description: "Permite instalar y ejecutar aplicaciones desde USB.",
+    description: "Tienda de Backups.",
     tag: "PS4",
-    size: "12 MB",
-    icon: "🔧",
+    size: "80.50 MB",
+    icon: "fpkgi.png",
     date: "15/09/2026",
     type: "PS4 Tool",
 
-    // ⬇️ PEGA AQUÍ EL ENLACE
-    url: "#"
+    // ⬇️ Enlace de MediaFire — descarga 
+    url: "https://www.mediafire.com/file/85mag1pt56dxzty/FPKGi.pkg/file"
   },
 
   {
-    name: "FTP-PS4",
+    name: "FPKGI DATA",
     category: "PS4",
-    description: "Cliente FTP para PS4.",
+    description: "Base de Datos para FPKGI STORE.",
     tag: "PS4",
-    size: "8 MB",
-    icon: "🗄️",
+    size: "46 MB",
+    icon: "fkgi_db.png",
     date: "12/09/2026",
     type: "PS4 Tool",
 
-    // ⬇️ PEGA AQUÍ EL ENLACE
-    url: "#"
+    // ⬇️ Enlace de MediaFire — descarga 
+    url: "#https://www.mediafire.com/file/g695twk33ut3cbd/FPKGi_Data.pkg/file"
   },
 
   {
