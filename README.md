@@ -41,3 +41,6 @@ Repositorio con los hosts de exploit WebKit mas populares para liberar tu PS4. A
 - **YouTube** — [Suscríbete a NovaXVerse](https://www.youtube.com/@novax_verse)
 - **Twitter / X** — [Síguenos en Twitter / X](https://x.com/NovaXverse)
 - **Ko-fi** — [Invítame un café](https://ko-fi.com/novaxverse)
+
+Máxima gratitud a las personas sin las cuáles nada de esto sería posible:
+GamerHack93, rawgame, zecoxao, M_Hasyimy, ntfargo, ufm42, Dr. Yenyen, Cturt, SiSTR0, ctn123, Shinigami, bucanero, jocover, nik, OSM, OpenOrbis Developers, OSM, drakmor, c0w-ar,earthonion, ufm42, D-Link Turtle, Gezine, Helloyunho, Dr.Yenyen, AlAzif, abc, TheFlow, Lua Loader project, Cryptogenic, rebelle3. 
