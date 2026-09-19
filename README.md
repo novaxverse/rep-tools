@@ -1,10 +1,10 @@
 # NovaXverse · CENTRAL DE WEBKITS PARA PS4
 
-Repositorio de NovaXverse con los hosts de exploit WebKit para liberar tu PS4. Publicada en **GitHub Pages** (HTTPS gratuito), accesible desde el navegador de la PS4 y de cualquier dispositivo tan sólo con un Click.
+Repositorio con los hosts de exploit WebKit mas populares para liberar tu PS4. Accesible desde el navegador de la PS4 y desde cualquier dispositivo.
 
 ## Contenido de la página
 
-- **LIBERA TU PS4 CON WEBKIT**: lista de hosts de EXPLOIT por versión de firmware:
+- **LIBERA TU PS4 CON WEBKIT**: Lista de hosts de EXPLOIT por versión de firmware:
 
   | Firmware | Host |
   |---|---|
