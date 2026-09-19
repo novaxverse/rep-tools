@@ -40,3 +40,4 @@ Repositorio de NovaXverse con los hosts de exploit WebKit para liberar tu PS4. P
 
 - **YouTube** — [Suscríbete a NovaXVerse](https://www.youtube.com/@novax_verse)
 - **Twitter / X** — [Síguenos en Twitter / X](https://x.com/NovaXverse)
+- **Ko-fi** — [Invítame un café](https://ko-fi.com/novaxverse)

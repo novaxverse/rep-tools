@@ -25,7 +25,7 @@ const tools = [
     type: "PS4 Tool",
 
     // ⬇️ Enlace de MediaFire — descarga 
-    url: "https://github.com/novaxverse/rep-tools/releases/download/vR2/Store-R2.pkg"
+    url: "#"
   },
 
   {
@@ -39,7 +39,7 @@ const tools = [
     type: "PS4 Tool",
 
     // ⬇️ Enlace de MediaFire — descarga 
-    url: "https://www.mediafire.com/file/85mag1pt56dxzty/FPKGi.pkg/file"
+    url: "#"
   },
 
   {
@@ -53,7 +53,7 @@ const tools = [
     type: "PS4 Tool",
 
     // ⬇️ Enlace de MediaFire — descarga 
-    url: "#https://www.mediafire.com/file/g695twk33ut3cbd/FPKGi_Data.pkg/file"
+    url: "#"
   },
 
   {
