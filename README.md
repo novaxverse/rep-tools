@@ -1,4 +1,4 @@
-# NovaXverse · Activación WEBKIT
+# NovaXverse · CENTRAL DE WEBKITS PARA PS4
 
 Repositorio de NovaXverse con los hosts de exploit WebKit para liberar tu PS4. Publicada en **GitHub Pages** (HTTPS gratuito), accesible desde el navegador de la PS4 y de cualquier dispositivo tan sólo con un Click.
 
