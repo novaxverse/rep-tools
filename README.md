@@ -1,6 +1,11 @@
-# NovaXverse · CENTRAL DE WEBKITS PARA PS4
+# NovaXverse · Central de WebKits para PS4
 
-Repositorio con los hosts de exploit WebKit mas populares para liberar tu PS4. Accesible desde el navegador de la PS4 y desde cualquier dispositivo.
+Repositorio con los hosts WebKit más populares para tu PS4, accesible directamente desde el navegador de la consola o desde cualquier otro dispositivo.
+
+El objetivo de este proyecto es facilitar y agilizar el acceso a diferentes herramientas y hosts WebKit, evitando tener que memorizar o escribir varias direcciones manualmente.
+
+Aquí encontrarás los hosts más populares reunidos en un solo lugar, para que puedas acceder a ellos de forma rápida, cómoda y sencilla.
+ar.
 
 ## Contenido de la página
 

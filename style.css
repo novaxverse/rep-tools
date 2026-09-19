@@ -510,8 +510,11 @@ footer .yellow{color:var(--yellow)}
 
 @media(max-width:760px){
   .webkit-grid{grid-template-columns:1fr}
+  .banner-glow{width:96%}
+  .banner{margin-top:22px}
 }
 
 @media(max-width:430px){
   .page{width:96%}
+  .banner-glow{width:100%}
 }
